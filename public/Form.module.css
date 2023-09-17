@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 2.5rem;
+  gap: 10px;
+
+  width: 100%;
+}
+
+input[type="text"] {
+  cursor: pointer;
+
+  height: 3rem;
+  width: 70%;
+  border-radius: 2rem;
+  border-width: 0px;
+  padding: 0 1rem 0 1rem;
+}
+
+button {
+  cursor: pointer;
+
+  height: 3rem;
+  width: 3rem;
+  border-width: 0px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -5,7 +5,8 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const API_KEY: string = import.meta.env.VITE_API_KEY;
 
-export default function Form() {
+export function Form() {
+  const [weatherData, setWeatherData] = useState({});
   const [formText, setFormText] = useState("");
 
   function handleInput(e: any) {
@@ -16,34 +17,32 @@ export default function Form() {
   function Submit(e: any) {
     e.preventDefault();
 
-    try {
-      axios
-        .get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${formText}&appid=${API_KEY}`
-        )
-        .then((res) => {
-          console.log(res);
-        });
-    } catch {
-      console.log("Error");
-    }
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${formText}&appid=${API_KEY}`
+      )
+      .then((res) => {
+        setWeatherData(res);
+        console.log(res);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   }
 
   return (
-    <>
-      <form action='' method='get' className={styles.form}>
-        <input
-          type='text'
-          name='city_name'
-          id='city_name'
-          value={formText}
-          onChange={handleInput}
-          placeholder='Search'
-        />
-        <button onClick={Submit}>
-          <SearchIcon />
-        </button>
-      </form>
-    </>
+    <form action='' method='get' className={styles.form}>
+      <input
+        type='text'
+        name='city_name'
+        id='city_name'
+        value={formText}
+        onChange={handleInput}
+        placeholder='Search'
+      />
+      <button onClick={Submit}>
+        <SearchIcon />
+      </button>
+    </form>
   );
 }

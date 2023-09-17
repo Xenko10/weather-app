@@ -5,8 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const API_KEY: string = import.meta.env.VITE_API_KEY;
 
-export function Form() {
-  const [weatherData, setWeatherData] = useState({});
+export function Form({ setWeatherData }: any) {
   const [formText, setFormText] = useState("");
 
   function handleInput(e: any) {
@@ -28,6 +27,8 @@ export function Form() {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
+
+    setFormText("");
   }
 
   return (

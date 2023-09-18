@@ -25,6 +25,7 @@ export function Form({ setWeatherData }: any) {
         console.log(res);
       })
       .catch((error) => {
+        setWeatherData({ error: "error" });
         console.error("Error fetching data:", error);
       });
 

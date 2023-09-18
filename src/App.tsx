@@ -4,12 +4,12 @@ import { Form } from "./Form";
 import Info from "./Info";
 
 function App() {
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState<any>({});
 
   return (
     <div className='display'>
       <Form setWeatherData={setWeatherData} />
-      <Info />
+      <Info city={weatherData.data?.name || ""} error={weatherData.error} />
     </div>
   );
 }

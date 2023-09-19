@@ -31,13 +31,13 @@ const Info: React.FC<InfoProps> = ({
         {temperature ? (
           <div>{Math.round(temperature) + " ℃"}</div>
         ) : (
-          <div className={styles.medium_font}>{error}</div>
+          <div className={styles.error}>{error}</div>
         )}
         <div className={styles.medium_font}>{city}</div>
       </div>
       <div className={styles.humidity_windspeed_wrapper}>
         {humidity ? (
-          <div>
+          <div className={styles.info_container}>
             <WaterIcon /> {humidity + "%"} <br />
             <div className={styles.smaller_font}>Humidity</div>
           </div>
@@ -45,7 +45,7 @@ const Info: React.FC<InfoProps> = ({
           ""
         )}
         {windSpeed ? (
-          <div>
+          <div className={styles.info_container}>
             <AirIcon /> {Math.round(windSpeed * 3.6) + " km/h "} <br />{" "}
             <div className={styles.smaller_font}>Wind Speed</div>
           </div>

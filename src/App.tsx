@@ -7,7 +7,12 @@ function App() {
   const [weatherData, setWeatherData] = useState<any>({});
 
   return (
-    <div className='display'>
+    <div
+      className={
+        weatherData.error || weatherData.data?.name
+          ? "display column"
+          : "display"
+      }>
       <Form setWeatherData={setWeatherData} />
       <Info
         city={weatherData.data?.name || ""}

@@ -12,10 +12,17 @@
 .temperature_city_wrapper {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 
   font-size: 4.5rem;
   text-align: center;
+
+  margin-bottom: 3rem;
+}
+
+.error {
+  font-size: 2rem;
+
+  margin-top: 2rem;
 }
 
 .medium_font {
@@ -26,8 +33,13 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8rem;
+  gap: 4rem;
+}
+
+.info_container {
+  max-width: 7rem;
+  min-width: 5rem;
+  min-height: 3.125rem;
 }
 
 .smaller_font {

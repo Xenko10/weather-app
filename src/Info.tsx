@@ -41,17 +41,13 @@ const Info = ({
             <WaterIcon /> {humidity + "%"} <br />
             <div className={styles.smaller_font}>Humidity</div>
           </div>
-        ) : (
-          ""
-        )}
+        ) : null}
         {windSpeed ? (
           <div className={styles.info_container}>
             <AirIcon /> {Math.round(windSpeed * 3.6) + " km/h "} <br />{" "}
             <div className={styles.smaller_font}>Wind Speed</div>
           </div>
-        ) : (
-          ""
-        )}
+        ) : null}
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
-import {MouseEvent} from 'react'
+import {MouseEvent, useState} from 'react'
 import axios from "axios";
-import { useState } from "react";
 import styles from "./Form.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -10,39 +9,39 @@ type Props = {
   setWeatherData: (data: any) => void
 }
 
+const fetchWeather = (query: string) =>
+    axios
+        .get(
+            `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${API_KEY}`
+        )
+        .then((res) => {
+          return res;
+        })
+        .catch((error) => {
+          if (error.response.data.cod === "404") {
+            return {error: "Input valid city name."};
+          }
+
+          if (error.response.data.cod === 401) {
+            return {error: "Insert valid API_KEY."};
+          }
+
+          if (error.response.data.cod === "400") {
+            return {
+              error: "Empty input. Input valid city name instead.",
+            };
+          }
+
+          return {error: "Error."};
+        })
+
 export function Form({ setWeatherData }: Props) {
   const [formText, setFormText] = useState("");
 
-  function submit(e: MouseEvent<HTMLButtonElement>) {
+  async function submit(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${formText}&appid=${API_KEY}`
-      )
-      .then((res) => {
-        setWeatherData(res);
-      })
-      .catch((error) => {
-        if (error.response.data.cod === "404") {
-          setWeatherData({ error: "Input valid city name." });
-          return;
-        }
-
-        if (error.response.data.cod === 401) {
-          setWeatherData({ error: "Insert valid API_KEY." });
-          return;
-        }
-
-        if (error.response.data.cod === "400") {
-          setWeatherData({
-            error: "Empty input. Input valid city name instead.",
-          });
-          return;
-        }
-
-        setWeatherData({ error: "Error." });
-      });
+    const response = await fetchWeather(formText)
+    setWeatherData(response)
 
     setFormText("");
   }

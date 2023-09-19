@@ -1,3 +1,4 @@
+import {MouseEvent} from 'react'
 import axios from "axios";
 import { useState } from "react";
 import styles from "../public/Form.module.css";
@@ -12,7 +13,7 @@ type Props = {
 export function Form({ setWeatherData }: Props) {
   const [formText, setFormText] = useState("");
 
-  function Submit(e: any) {
+  function submit(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
     axios
@@ -21,11 +22,8 @@ export function Form({ setWeatherData }: Props) {
       )
       .then((res) => {
         setWeatherData(res);
-        // console.log(res);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
-
         if (error.response.data.cod === "404") {
           setWeatherData({ error: "Input valid city name." });
           return;
@@ -50,7 +48,7 @@ export function Form({ setWeatherData }: Props) {
   }
 
   return (
-    <form action='' method='get' className={styles.form}>
+    <form method='get' className={styles.form}>
       <input
         type='text'
         name='city_name'
@@ -59,7 +57,7 @@ export function Form({ setWeatherData }: Props) {
         onChange={e => setFormText(e.target.value)}
         placeholder='Search'
       />
-      <button onClick={Submit}>
+      <button onClick={submit}>
         <SearchIcon />
       </button>
     </form>

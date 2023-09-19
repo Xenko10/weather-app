@@ -22,11 +22,29 @@ export function Form({ setWeatherData }: any) {
       )
       .then((res) => {
         setWeatherData(res);
-        console.log(res);
+        // console.log(res);
       })
       .catch((error) => {
-        setWeatherData({ error: "Input valid city name." });
         console.error("Error fetching data:", error);
+
+        if (error.response.data.cod === "404") {
+          setWeatherData({ error: "Input valid city name." });
+          return;
+        }
+
+        if (error.response.data.cod === 401) {
+          setWeatherData({ error: "Insert valid API_KEY." });
+          return;
+        }
+
+        if (error.response.data.cod === "400") {
+          setWeatherData({
+            error: "Empty input. Input valid city name instead.",
+          });
+          return;
+        }
+
+        setWeatherData({ error: "Error." });
       });
 
     setFormText("");

@@ -15,7 +15,7 @@ function App() {
       }>
       <Form setWeatherData={setWeatherData} />
       <Info
-        city={weatherData.data?.name || ""}
+        city={weatherData.data?.name}
         error={weatherData.error}
         temperature={weatherData.data?.main.temp - 273.15}
         humidity={weatherData.data?.main.humidity}

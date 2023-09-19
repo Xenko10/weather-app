@@ -8,11 +8,6 @@ const API_KEY: string = import.meta.env.VITE_API_KEY;
 export function Form({ setWeatherData }: any) {
   const [formText, setFormText] = useState("");
 
-  function handleInput(e: any) {
-    const { value } = e.target;
-    setFormText(value);
-  }
-
   function Submit(e: any) {
     e.preventDefault();
 
@@ -57,7 +52,7 @@ export function Form({ setWeatherData }: any) {
         name='city_name'
         id='city_name'
         value={formText}
-        onChange={handleInput}
+        onChange={e => setFormText(e.target.value)}
         placeholder='Search'
       />
       <button onClick={Submit}>

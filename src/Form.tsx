@@ -5,7 +5,11 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const API_KEY: string = import.meta.env.VITE_API_KEY;
 
-export function Form({ setWeatherData }: any) {
+type Props = {
+  setWeatherData: (data: any) => void
+}
+
+export function Form({ setWeatherData }: Props) {
   const [formText, setFormText] = useState("");
 
   function Submit(e: any) {

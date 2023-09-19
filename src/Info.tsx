@@ -11,14 +11,14 @@ interface InfoProps {
   icon: string;
 }
 
-const Info: React.FC<InfoProps> = ({
+const Info = ({
   temperature,
   city,
   error,
   humidity,
   windSpeed,
   icon,
-}) => {
+}: InfoProps) => {
   return (
     <div className={styles.infoWrapper}>
       {icon && (

@@ -28,7 +28,7 @@ const Info = ({
           alt='current weather icon'
         />
       )}
-      <div className={styles.temperature_city_wrapper}>
+      <div className={styles.temperatureCityWrapper}>
         {temperature ? (
           <div>{Math.round(temperature)} ℃</div>
         ) : (

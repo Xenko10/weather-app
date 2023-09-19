@@ -29,7 +29,7 @@ const Info = ({
       )}
       <div className={styles.temperature_city_wrapper}>
         {temperature ? (
-          <div>{Math.round(temperature) + " ℃"}</div>
+          <div>{Math.round(temperature)} ℃</div>
         ) : (
           <div className={styles.error}>{error}</div>
         )}

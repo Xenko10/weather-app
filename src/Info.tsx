@@ -1,4 +1,6 @@
 import styles from "../public/Info.module.css";
+import AirIcon from "@mui/icons-material/Air";
+import WaterIcon from "@mui/icons-material/Water";
 
 interface InfoProps {
   city: string;
@@ -20,11 +22,25 @@ const Info: React.FC<InfoProps> = ({
       {city && <img src='./src/assets/sunny-icon.png' alt='sunny icon' />}
       <div className={styles.temperature_city_wrapper}>
         <div>{temperature ? Math.round(temperature) + " ℃" : error}</div>
-        <div>{city}</div>
+        <div className={styles.medium_font}>{city}</div>
       </div>
       <div className={styles.humidity_windspeed_wrapper}>
-        {humidity ? <div>{humidity + "%"}</div> : ""}
-        {windSpeed ? <div> {Math.round(windSpeed * 3.6) + " km/h "} </div> : ""}
+        {humidity ? (
+          <div>
+            <WaterIcon /> {humidity + "%"} <br />
+            <div className={styles.smaller_font}>Humidity</div>
+          </div>
+        ) : (
+          ""
+        )}
+        {windSpeed ? (
+          <div>
+            <AirIcon /> {Math.round(windSpeed * 3.6) + " km/h "} <br />{" "}
+            <div className={styles.smaller_font}>Wind Speed</div>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import {MouseEvent} from 'react'
 import axios from "axios";
 import { useState } from "react";
-import styles from "../public/Form.module.css";
+import styles from "./Form.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 
 const API_KEY: string = import.meta.env.VITE_API_KEY;

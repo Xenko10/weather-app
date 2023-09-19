@@ -1,4 +1,4 @@
-import styles from "../public/Info.module.css";
+import styles from "./Info.module.css";
 import AirIcon from "@mui/icons-material/Air";
 import WaterIcon from "@mui/icons-material/Water";
 

@@ -9,7 +9,11 @@ function App() {
   return (
     <div className='display'>
       <Form setWeatherData={setWeatherData} />
-      <Info city={weatherData.data?.name || ""} error={weatherData.error} />
+      <Info
+        city={weatherData.data?.name || ""}
+        error={weatherData.error}
+        temperature={weatherData.data?.main.temp - 273.15}
+      />
     </div>
   );
 }

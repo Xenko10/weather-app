@@ -23,7 +23,8 @@ const Info = ({
     <div className={styles.infoWrapper}>
       {icon && (
         <img
-          src={"https://openweathermap.org/img/wn/" + icon + "@2x.png"} // unfortunently API give low quality png
+          // unfortunately API give low quality png
+          src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
           alt='current weather icon'
         />
       )}
@@ -38,7 +39,7 @@ const Info = ({
       <div className={styles.humidity_windspeed_wrapper}>
         {humidity ? (
           <div className={styles.info_container}>
-            <WaterIcon /> {humidity + "%"} <br />
+            <WaterIcon /> {humidity} %<br />
             <div className={styles.smaller_font}>Humidity</div>
           </div>
         ) : null}

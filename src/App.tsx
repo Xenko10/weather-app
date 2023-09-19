@@ -15,6 +15,7 @@ function App() {
         temperature={weatherData.data?.main.temp - 273.15}
         humidity={weatherData.data?.main.humidity}
         windSpeed={weatherData.data?.wind.speed}
+        icon={weatherData.data?.weather[0].icon}
       />
     </div>
   );

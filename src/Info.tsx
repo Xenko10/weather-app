@@ -8,6 +8,7 @@ interface InfoProps {
   temperature: number;
   humidity: number;
   windSpeed: number;
+  icon: string;
 }
 
 const Info: React.FC<InfoProps> = ({
@@ -16,10 +17,16 @@ const Info: React.FC<InfoProps> = ({
   error,
   humidity,
   windSpeed,
+  icon,
 }) => {
   return (
     <div className={styles.infoWrapper}>
-      {city && <img src='./src/assets/sunny-icon.png' alt='sunny icon' />}
+      {icon && (
+        <img
+          src={"https://openweathermap.org/img/wn/" + icon + "@2x.png"} // unfortunently API give low quality png
+          alt='current weather icon'
+        />
+      )}
       <div className={styles.temperature_city_wrapper}>
         {temperature ? (
           <div>{Math.round(temperature) + " ℃"}</div>

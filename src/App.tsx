@@ -3,15 +3,15 @@ import { useState } from "react";
 import { Form } from "./Form";
 import Info from "./Info";
 
-function App() {
+export default function App() {
   const [weatherData, setWeatherData] = useState<any>({});
 
   return (
     <div
       className={
         weatherData.error || weatherData.data?.name
-          ? "display column"
-          : "display"
+          ? "display after-first-input"
+          : "display "
       }>
       <Form setWeatherData={setWeatherData} />
       <Info
@@ -25,5 +25,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

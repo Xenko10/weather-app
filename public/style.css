@@ -53,10 +53,10 @@ body {
 
   display: flex;
   align-items: center;
-  padding-bottom: 2rem;
   margin: 1rem;
 }
 
-.column {
+.after-first-input {
   flex-direction: column;
+  padding-bottom: 2rem;
 }

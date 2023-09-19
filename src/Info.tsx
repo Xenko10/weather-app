@@ -21,7 +21,11 @@ const Info: React.FC<InfoProps> = ({
     <div className={styles.infoWrapper}>
       {city && <img src='./src/assets/sunny-icon.png' alt='sunny icon' />}
       <div className={styles.temperature_city_wrapper}>
-        <div>{temperature ? Math.round(temperature) + " ℃" : error}</div>
+        {temperature ? (
+          <div>{Math.round(temperature) + " ℃"}</div>
+        ) : (
+          <div className={styles.medium_font}>{error}</div>
+        )}
         <div className={styles.medium_font}>{city}</div>
       </div>
       <div className={styles.humidity_windspeed_wrapper}>

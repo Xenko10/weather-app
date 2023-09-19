@@ -25,7 +25,7 @@ export function Form({ setWeatherData }: any) {
         console.log(res);
       })
       .catch((error) => {
-        setWeatherData({ error: "error" });
+        setWeatherData({ error: "Input valid city name." });
         console.error("Error fetching data:", error);
       });
 

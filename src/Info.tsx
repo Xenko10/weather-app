@@ -16,12 +16,16 @@ const Info: React.FC<InfoProps> = ({
   windSpeed,
 }) => {
   return (
-    <div className={styles.info}>
+    <div className={styles.infoWrapper}>
       {city && <img src='./src/assets/sunny-icon.png' alt='sunny icon' />}
-      <div>{temperature ? Math.round(temperature) + " ℃" : error}</div>
-      <div>{city}</div>
-      <div>{humidity ? humidity + "%" : ""}</div>
-      <div>{windSpeed ? Math.round(windSpeed * 3.6) + " km/h " : ""}</div>
+      <div className={styles.temperature_city_wrapper}>
+        <div>{temperature ? Math.round(temperature) + " ℃" : error}</div>
+        <div>{city}</div>
+      </div>
+      <div className={styles.humidity_windspeed_wrapper}>
+        {humidity ? <div>{humidity + "%"}</div> : ""}
+        {windSpeed ? <div> {Math.round(windSpeed * 3.6) + " km/h "} </div> : ""}
+      </div>
     </div>
   );
 };

@@ -1,10 +1,12 @@
 <div align="center">
-    <h3>Weather App preview</h3>
+    <h2>Weather App preview</h3>
 <img src="weather_app_preview.png" alt="Weather App preview">
 </div>
 
+## How to install Weather App?
+
 1. Common setup.
-   Clone the repo and install the dependencies.
+   Clone the repository and install the dependencies.
    - git clone https://github.com/Xenko10/weather-app.git
    - cd weather-app
    - yarn

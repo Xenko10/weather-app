@@ -1,5 +1,5 @@
 <div align="center">
-    <h2>Weather App preview</h3>
+    <h2>Weather App preview</h2>
 <img src="weather_app_preview.png" alt="Weather App preview">
 </div>
 
